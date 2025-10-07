@@ -1,0 +1,387 @@
+</style>
+
+
+<section style="margin-top:70px;">
+  <h2 style="color:#6c3fa9; font-size:2em; margin-bottom:18px;">Embryonalperioden – Tidslinje</h2>
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <svg width="700" height="110" viewBox="0 0 700 110">
+      <!-- Horisontal buet linje -->
+      <path d="M60,60 Q200,10 350,60 Q500,110 640,60" fill="none" stroke="#e0e0e0" stroke-width="6"/>
+      <!-- Uge-cirkler og ikoner -->
+      <g class="timeline-week" data-week="0">
+        <circle cx="60" cy="60" r="28" fill="#e74c3c" stroke="#fff" stroke-width="3"/>
+        <text x="60" y="65" text-anchor="middle" font-size="22" fill="#fff" font-family="Arial">0</text>
+        <text x="60" y="90" text-anchor="middle" font-size="18" fill="#e74c3c" font-family="Arial">⚭</text>
+      </g>
+      <g class="timeline-week" data-week="1">
+        <circle cx="150" cy="40" r="24" fill="#e74c3c" stroke="#fff" stroke-width="3"/>
+        <text x="150" y="45" text-anchor="middle" font-size="20" fill="#fff" font-family="Arial">1</text>
+        <text x="150" y="75" text-anchor="middle" font-size="18" fill="#e74c3c" font-family="Arial">🧬</text>
+      </g>
+      <g class="timeline-week" data-week="2">
+        <circle cx="240" cy="30" r="22" fill="#ff9900" stroke="#fff" stroke-width="3"/>
+        <text x="240" y="35" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial">2</text>
+        <text x="240" y="65" text-anchor="middle" font-size="18" fill="#ff9900" font-family="Arial">💛</text>
+      </g>
+      <g class="timeline-week" data-week="4">
+        <circle cx="350" cy="60" r="22" fill="#ff9900" stroke="#fff" stroke-width="3"/>
+        <text x="350" y="65" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial">4</text>
+        <text x="350" y="95" text-anchor="middle" font-size="18" fill="#ff9900" font-family="Arial">🧠</text>
+      </g>
+      <g class="timeline-week" data-week="5">
+        <circle cx="460" cy="90" r="20" fill="#27ae60" stroke="#fff" stroke-width="3"/>
+        <text x="460" y="95" text-anchor="middle" font-size="16" fill="#fff" font-family="Arial">5</text>
+        <text x="460" y="115" text-anchor="middle" font-size="18" fill="#27ae60" font-family="Arial">👁️</text>
+      </g>
+      <g class="timeline-week" data-week="6">
+        <circle cx="550" cy="80" r="20" fill="#3498db" stroke="#fff" stroke-width="3"/>
+        <text x="550" y="85" text-anchor="middle" font-size="16" fill="#fff" font-family="Arial">6</text>
+        <text x="550" y="105" text-anchor="middle" font-size="18" fill="#3498db" font-family="Arial">✋</text>
+      </g>
+      <g class="timeline-week" data-week="8">
+        <circle cx="640" cy="60" r="22" fill="#6c3fa9" stroke="#fff" stroke-width="3"/>
+        <text x="640" y="65" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial">8</text>
+        <text x="640" y="95" text-anchor="middle" font-size="18" fill="#6c3fa9" font-family="Arial">👶</text>
+      </g>
+    </svg>
+    <div id="timeline-info" style="margin-top:30px;max-width:340px;font-size:1.1em;color:#333;min-height:120px;text-align:center;"></div>
+  </div>
+</section>
+<script>
+// Info-tekster for hver uge
+const timelineInfo = {
+  0: '<b>UGE 0</b><br>Befrugtning og dannelse af blastocyst',
+  1: '<b>UGE 1</b><br>Implantation, trofectoderm og embryoblast',
+  2: '<b>UGE 2</b><br>Amnionkavitet, sekundær blommesæk og bilaminær kim',
+  4: '<b>UGE 4</b><br>Somitogenese og organogenese',
+  5: '<b>UGE 5</b><br>Anlæg af lemknopper',
+  6: '<b>UGE 6</b><br>Øjne, ører, hoved og hale',
+  8: '<b>UGE 8</b><br>Morfogenese af hjernen og færdigdannelse af embryon',
+};
+document.querySelectorAll('.timeline-week').forEach(g => {
+  g.style.cursor = 'pointer';
+  g.addEventListener('mouseenter', function() {
+    const week = this.getAttribute('data-week');
+    document.getElementById('timeline-info').innerHTML = timelineInfo[week] || '';
+  });
+  g.addEventListener('mouseleave', function() {
+    document.getElementById('timeline-info').innerHTML = '';
+  });
+  g.addEventListener('click', function() {
+    const week = this.getAttribute('data-week');
+    document.getElementById('timeline-info').innerHTML = timelineInfo[week] || '';
+  });
+});
+</script>
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Embryonalperioden – Uge 1–8</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to bottom right, #fef6ff, #e6f7ff);
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #6c3fa9;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .card {
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(108,63,169,0.10);
+      padding: 18px 10px 10px 10px;
+      width: 280px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.2s;
+    }
+    .card-0 { background: linear-gradient(135deg, #fff7e6 60%, #ffe6b3 100%); border: 2.5px solid #ffb347; }
+    .card-2 { background: linear-gradient(135deg, #fff6f0 60%, #ffe0c2 100%); border: 2.5px solid #ff9900; }
+    .card-3 { background: linear-gradient(135deg, #fff0f0 60%, #ffd6d6 100%); border: 2.5px solid #e74c3c; }
+    .card-4 { background: linear-gradient(135deg, #f0f6ff 60%, #c2e0ff 100%); border: 2.5px solid #3498db; }
+    .card-5 { background: linear-gradient(135deg, #f0fff0 60%, #c2ffd6 100%); border: 2.5px solid #27ae60; }
+    .card:hover {
+      box-shadow: 0 8px 28px rgba(108,63,169,0.18);
+    }
+    .week {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d0d0ff 60%, #b3e6ff 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #333;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 3px solid #a3c4f3;
+      margin-bottom: 8px;
+    }
+    .cell-indicator {
+      display: flex;
+      gap: 3px;
+      margin-top: 7px;
+      margin-bottom: 2px;
+      justify-content: center;
+    }
+    .cell-dot {
+      width: 13px;
+      height: 13px;
+      background: #a3c4f3;
+      border-radius: 50%;
+      border: 1.5px solid #6c3fa9;
+      display: inline-block;
+    }
+    .week:hover {
+      background: linear-gradient(135deg, #b0b0ff 60%, #a3e6ff 100%);
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 10px 24px rgba(108,63,169,0.18);
+      border-color: #6c3fa9;
+    }
+    .info {
+      position: static;
+      background: #fff8fc;
+      color: #2d2d2d;
+      padding: 16px 14px 14px 14px;
+      border-radius: 14px;
+      width: 240px;
+      font-size: 1em;
+      box-shadow: 0 4px 16px rgba(108,63,169,0.10);
+      border: 2px solid #e6cfff;
+      display: none;
+      margin-top: 18px;
+      text-align: left;
+      line-height: 1.5;
+      transition: box-shadow 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌀 Embryonalperioden – Uge 1–8</h1>
+  <div class="grid">
+    <div class="card card-0">
+      <div style="margin-bottom: 6px;">
+        <!-- Zygote/morula illustration: én stor celle og mange små celler (morula) -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <circle cx="19" cy="19" r="15" fill="#fff7e6" stroke="#ffb347" stroke-width="2"/>
+          <circle cx="19" cy="19" r="7.5" fill="#ffe6b3" stroke="#ffb347" stroke-width="1.5"/>
+          <circle cx="19" cy="19" r="2.7" fill="#ffb347"/>
+          <circle cx="15.5" cy="16.5" r="1.5" fill="#ffb347"/>
+          <circle cx="22.5" cy="16.5" r="1.5" fill="#ffb347"/>
+          <circle cx="16.5" cy="22.5" r="1.5" fill="#ffb347"/>
+          <circle cx="21.5" cy="22.5" r="1.5" fill="#ffb347"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u0')">
+        <div style="font-size:1.6em;line-height:1;">⚫</div>
+        <div style="font-size:0.8em;color:#333;">Mindre end sesamfrø</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 1</div>
+      </div>
+      <div id="u0" class="info">
+        <b>Fertilisation:</b> Sædcelle og ægcelle fusionerer → <b>zygote</b>.<br>
+        <b>Kløvning:</b> Mitotiske delinger → 2-, 4-, 8-celle stadier → <b>morula</b>.<br>
+        <b>Blastocyst:</b> Dannes ca. dag 5 med <i>embryoblast</i>, <i>trofoblast</i> og <i>blastocele</i>.<br>
+        <b>Implantation:</b> Trofoblast invaderer endometriet (dag 6–7).<br>
+        <span style="color:#ff9900;">Fagtermer:</span> fertilisation, zygote, kløvning, morula, blastocyst, embryoblast, trofoblast, blastocele, implantation, endometrium.
+      </div>
+    </div>
+    <div class="card card-2">
+      <div style="margin-bottom: 6px;">
+        <!-- Bilaminær kimskive: to tydelige lag -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <ellipse cx="19" cy="19" rx="15" ry="11" fill="#fff6f0" stroke="#ff9900" stroke-width="2"/>
+          <ellipse cx="19" cy="15.5" rx="8" ry="3.5" fill="#fff" stroke="#ff9900" stroke-width="1.2"/>
+          <ellipse cx="19" cy="22.5" rx="8" ry="3.5" fill="#ffe0c2" stroke="#ff9900" stroke-width="1.2"/>
+          <ellipse cx="19" cy="19" rx="8" ry="1.2" fill="#ff9900" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u2')">
+        <div style="font-size:1.6em;line-height:1;">🌱</div>
+        <div style="font-size:0.8em;color:#b38b00;">Valmuefrø</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 2</div>
+      </div>
+      <div id="u2" class="info">
+        <b>Embryoblast</b> → <i>epiblast</i> og <i>hypoblast</i> → <b>bilaminær kimskive</b>.<br>
+        Dannelse af <b>amniotisk hulrum</b> og <b>blommesæk</b>.<br>
+        <b>Trofoblast</b> → <i>cytotrofoblast</i> og <i>syncytiotrofoblast</i> med <b>lacunae</b>.<br>
+        Begyndende <b>materno-føtal cirkulation</b>.<br>
+        <span style="color:#ff9900;">Fagtermer:</span> bilaminær kimskive, epiblast, hypoblast, amnion, blommesæk, cytotrofoblast, syncytiotrofoblast, lacunae, materno-føtal cirkulation.
+      </div>
+    </div>
+    <div class="card card-3">
+      <div style="margin-bottom: 6px;">
+        <!-- Trilaminær kimskive: tre tydelige lag -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <ellipse cx="19" cy="19" rx="15" ry="11" fill="#ffd6d6" stroke="#e74c3c" stroke-width="2"/>
+          <ellipse cx="19" cy="12.5" rx="8" ry="2.5" fill="#fff" stroke="#e74c3c" stroke-width="1.2"/>
+          <ellipse cx="19" cy="19" rx="8" ry="2.5" fill="#ffb3b3" stroke="#e74c3c" stroke-width="1.2"/>
+          <ellipse cx="19" cy="25.5" rx="8" ry="2.5" fill="#fff" stroke="#e74c3c" stroke-width="1.2"/>
+          <ellipse cx="19" cy="15.5" rx="8" ry="1.1" fill="#e74c3c" opacity="0.3"/>
+          <ellipse cx="19" cy="22.5" rx="8" ry="1.1" fill="#e74c3c" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u3')">
+        <div style="font-size:1.6em;line-height:1;">⚪</div>
+        <div style="font-size:0.8em;color:#b38b00;">Sesamfrø</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 3</div>
+      </div>
+      <div id="u3" class="info">
+        <b>Primitive streak</b> dannes i epiblast.<br>
+        <b>Epiblastceller migrerer</b> → danner tre kimlag:<br>
+        <b>Ektoderm:</b> hud, CNS<br>
+        <b>Mesoderm:</b> muskler, knogler, blodkar<br>
+        <b>Endoderm:</b> epitel i GI- og respirationssystemet<br>
+        <b>Notochord</b> dannes → vigtig for neurulering og kropsakse.<br>
+        <span style="color:#e74c3c;">Fagtermer:</span> primitive streak, gastrulation, ektoderm, mesoderm, endoderm, notochord, kropsakse.
+      </div>
+    </div>
+    <div class="card card-4">
+      <div style="margin-bottom: 6px;">
+        <!-- Neuralrør/embryo: neuralrør og begyndende kropsform -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <ellipse cx="19" cy="22" rx="11" ry="6" fill="#c2e0ff" stroke="#3498db" stroke-width="2"/>
+          <ellipse cx="19" cy="15" rx="6" ry="3.5" fill="#fff" stroke="#3498db" stroke-width="1.2"/>
+          <rect x="16" y="10" width="6" height="8" rx="3" fill="#3498db" opacity="0.5"/>
+          <rect x="17.5" y="13" width="3" height="10" rx="1.5" fill="#3498db" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u4')">
+        <div style="font-size:1.6em;line-height:1;"></div>
+        <div style="font-size:0.8em;color:#8d5524;">Linsefrø</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 4</div>
+      </div>
+      <div id="u4" class="info">
+        <b>Neuralplade</b> → <b>neuralrør</b> (lukker kranielt og kaudalt).<br>
+        <b>Neuralkam</b> → PNS, melanocytter, binyremarv.<br>
+        <b>Somitter</b> dannes fra paraksial mesoderm:<br>
+        Sclerotom → vertebrae<br>
+        Myotom → skeletmuskulatur<br>
+        Dermatom → dermis<br>
+        <b>Embryo foldes</b> cephalocaudalt og lateralt → dannelse af kropshulrum og tarmrør.<br>
+        <span style="color:#3498db;">Fagtermer:</span> neuralplade, neuralrør, neuralkam, somitter, sclerotom, myotom, dermatom, kropsfoldning, tarmrør.
+      </div>
+    </div>
+    <div class="card card-5">
+      <div style="margin-bottom: 6px;">
+        <!-- Uge 5: Lemmeknopper -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <ellipse cx="19" cy="22" rx="11" ry="6" fill="#c2ffd6" stroke="#27ae60" stroke-width="2"/>
+          <ellipse cx="19" cy="15" rx="6" ry="8" fill="#fff" stroke="#27ae60" stroke-width="1.2"/>
+          <ellipse cx="19" cy="20" rx="4.5" ry="6" fill="#27ae60" opacity="0.18"/>
+          <circle cx="19" cy="13" r="2.2" fill="#27ae60"/>
+          <rect x="17.5" y="22" width="3" height="6" rx="1.5" fill="#27ae60" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u5')">
+        <div style="font-size:1.6em;line-height:1;">🌻</div>
+        <div style="font-size:0.8em;color:#b38b00;">Solsikkefrø</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 5</div>
+      </div>
+      <div id="u5" class="info">
+        <b>Lemmeknopper</b> (arme og ben) dannes.<br>
+        <b>Ansigtsudvikling</b> starter.<br>
+        <b>Hjertet</b> får fire kamre.<br>
+        <span style="color:#27ae60;">Fagtermer:</span> lemknopper, ansigtsudvikling, branchiebuer, hjertekamre, mesenchym.
+      </div>
+    </div>
+    <div class="card card-5">
+      <div style="margin-bottom: 6px;">
+        <!-- Uge 6: Øjne, ører -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <ellipse cx="19" cy="22" rx="11" ry="6" fill="#c2ffd6" stroke="#27ae60" stroke-width="2"/>
+          <ellipse cx="19" cy="15" rx="6" ry="8" fill="#fff" stroke="#27ae60" stroke-width="1.2"/>
+          <ellipse cx="19" cy="20" rx="4.5" ry="6" fill="#27ae60" opacity="0.18"/>
+          <circle cx="19" cy="13" r="2.2" fill="#27ae60"/>
+          <ellipse cx="15.5" cy="25.5" rx="1.2" ry="2.2" fill="#27ae60" opacity="0.7"/>
+          <ellipse cx="22.5" cy="25.5" rx="1.2" ry="2.2" fill="#27ae60" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u6')">
+        <div style="font-size:1.6em;line-height:1;">🧵</div>
+        <div style="font-size:0.8em;color:#b38b00;">Hørfrø</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 6</div>
+      </div>
+      <div id="u6" class="info">
+        <b>Øjne</b> og <b>ører</b> udvikles videre.<br>
+        <b>Hjerteaktivitet</b> kan måles.<br>
+        <b>Fingeranlæg</b> opstår.<br>
+        <span style="color:#27ae60;">Fagtermer:</span> øjenanlæg, øreknopper, hjerteaktivitet, fingeranlæg, apoptose.
+      </div>
+    </div>
+    <div class="card card-5">
+      <div style="margin-bottom: 6px;">
+        <!-- Uge 7: Fingre adskilles -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <ellipse cx="19" cy="22" rx="11" ry="6" fill="#c2ffd6" stroke="#27ae60" stroke-width="2"/>
+          <ellipse cx="19" cy="15" rx="6" ry="8" fill="#fff" stroke="#27ae60" stroke-width="1.2"/>
+          <ellipse cx="19" cy="20" rx="4.5" ry="6" fill="#27ae60" opacity="0.18"/>
+          <circle cx="19" cy="13" r="2.2" fill="#27ae60"/>
+          <rect x="17.5" y="22" width="3" height="6" rx="1.5" fill="#27ae60" opacity="0.4"/>
+          <ellipse cx="15.5" cy="25.5" rx="1.2" ry="2.2" fill="#27ae60" opacity="0.7"/>
+          <ellipse cx="22.5" cy="25.5" rx="1.2" ry="2.2" fill="#27ae60" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u7')">
+        <div style="font-size:1.6em;line-height:1;">🫐</div>
+        <div style="font-size:0.8em;color:#3498db;">Blåbær</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 7</div>
+      </div>
+      <div id="u7" class="info">
+        <b>Fingre</b> adskilles (apoptose mellem strålerne).<br>
+        <b>Organudvikling</b> fortsætter.<br>
+        <b>Tarme</b> roterer.<br>
+        <span style="color:#27ae60;">Fagtermer:</span> apoptose, organogenese, tarmrotation, ekstremitetsudvikling.
+      </div>
+    </div>
+    <div class="card card-5">
+      <div style="margin-bottom: 6px;">
+        <!-- Uge 8: Morfogenese -->
+        <svg width="38" height="38" viewBox="0 0 38 38">
+          <ellipse cx="19" cy="22" rx="11" ry="6" fill="#c2ffd6" stroke="#27ae60" stroke-width="2"/>
+          <ellipse cx="19" cy="15" rx="6" ry="8" fill="#fff" stroke="#27ae60" stroke-width="1.2"/>
+          <ellipse cx="19" cy="20" rx="4.5" ry="6" fill="#27ae60" opacity="0.18"/>
+          <circle cx="19" cy="13" r="2.2" fill="#27ae60"/>
+          <rect x="17.5" y="22" width="3" height="6" rx="1.5" fill="#27ae60" opacity="0.4"/>
+          <ellipse cx="15.5" cy="25.5" rx="1.2" ry="2.2" fill="#27ae60" opacity="0.7"/>
+          <ellipse cx="22.5" cy="25.5" rx="1.2" ry="2.2" fill="#27ae60" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="week" onclick="toggleInfo('u8')">
+        <div style="font-size:1.6em;line-height:1;">🍇</div>
+        <div style="font-size:0.8em;color:#c72c5a;">Hindbær</div>
+        <div style="margin-top:7px;font-size:0.95em;">Uge 8</div>
+      </div>
+      <div id="u8" class="info">
+        <b>Morfogenese</b> af <b>hjerne</b> og <b>organer</b> afsluttes.<br>
+        <b>Alle større organsystemer</b> er anlagt.<br>
+        <b>Embryo</b> bliver til <b>foster</b>.<br>
+        <span style="color:#27ae60;">Fagtermer:</span> morfogenese, organogenese, CNS, foster, differentiering.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleInfo(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
