@@ -23,6 +23,11 @@
         <text x="240" y="35" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial">2</text>
         <text x="240" y="65" text-anchor="middle" font-size="18" fill="#ff9900" font-family="Arial">💛</text>
       </g>
+      <g class="timeline-week" data-week="3">
+        <circle cx="295" cy="25" r="22" fill="#e74c3c" stroke="#fff" stroke-width="3"/>
+        <text x="295" y="30" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial">3</text>
+        <text x="295" y="60" text-anchor="middle" font-size="18" fill="#e74c3c" font-family="Arial">⚪</text>
+      </g>
       <g class="timeline-week" data-week="4">
         <circle cx="350" cy="60" r="22" fill="#ff9900" stroke="#fff" stroke-width="3"/>
         <text x="350" y="65" text-anchor="middle" font-size="18" fill="#fff" font-family="Arial">4</text>
@@ -37,6 +42,11 @@
         <circle cx="550" cy="80" r="20" fill="#3498db" stroke="#fff" stroke-width="3"/>
         <text x="550" y="85" text-anchor="middle" font-size="16" fill="#fff" font-family="Arial">6</text>
         <text x="550" y="105" text-anchor="middle" font-size="18" fill="#3498db" font-family="Arial">✋</text>
+      </g>
+      <g class="timeline-week" data-week="7">
+        <circle cx="595" cy="70" r="20" fill="#27ae60" stroke="#fff" stroke-width="3"/>
+        <text x="595" y="75" text-anchor="middle" font-size="16" fill="#fff" font-family="Arial">7</text>
+        <text x="595" y="95" text-anchor="middle" font-size="18" fill="#27ae60" font-family="Arial">🫐</text>
       </g>
       <g class="timeline-week" data-week="8">
         <circle cx="640" cy="60" r="22" fill="#6c3fa9" stroke="#fff" stroke-width="3"/>
@@ -53,9 +63,11 @@ const timelineInfo = {
   0: '<b>UGE 0</b><br>Befrugtning og dannelse af blastocyst',
   1: '<b>UGE 1</b><br>Implantation, trofectoderm og embryoblast',
   2: '<b>UGE 2</b><br>Amnionkavitet, sekundær blommesæk og bilaminær kim',
+  3: '<b>UGE 3</b><br>Gastrulation: dannelse af tre kimlag (ektoderm, mesoderm, endoderm) og notochord',
   4: '<b>UGE 4</b><br>Somitogenese og organogenese',
   5: '<b>UGE 5</b><br>Anlæg af lemknopper',
   6: '<b>UGE 6</b><br>Øjne, ører, hoved og hale',
+  7: '<b>UGE 7</b><br>Fingre adskilles, organudvikling og tarmrotation',
   8: '<b>UGE 8</b><br>Morfogenese af hjernen og færdigdannelse af embryon',
 };
 document.querySelectorAll('.timeline-week').forEach(g => {
@@ -112,6 +124,7 @@ document.querySelectorAll('.timeline-week').forEach(g => {
     .card-3 { background: linear-gradient(135deg, #fff0f0 60%, #ffd6d6 100%); border: 2.5px solid #e74c3c; }
     .card-4 { background: linear-gradient(135deg, #f0f6ff 60%, #c2e0ff 100%); border: 2.5px solid #3498db; }
     .card-5 { background: linear-gradient(135deg, #f0fff0 60%, #c2ffd6 100%); border: 2.5px solid #27ae60; }
+    .card-dna { background: linear-gradient(135deg, #f2e7ff 60%, #d9b3ff 100%); border: 2.5px solid #8e44ad; }
     .card:hover {
       box-shadow: 0 8px 28px rgba(108,63,169,0.18);
     }
@@ -375,6 +388,25 @@ document.querySelectorAll('.timeline-week').forEach(g => {
         <span style="color:#27ae60;">Fagtermer:</span> morfogenese, organogenese, CNS, foster, differentiering.
       </div>
     </div>
+    <a href="DNA.html" style="text-decoration: none;">
+      <div class="card card-dna">
+        <div style="margin-bottom: 6px;">
+          <svg width="38" height="38" viewBox="0 0 38 38">
+              <path d="M19 2 C 28 2 36 10 36 19 C 36 28 28 36 19 36 C 10 36 2 28 2 19 C 2 10 10 2 19 2 Z" fill="#f2e7ff" stroke="#8e44ad" stroke-width="2"/>
+              <path d="M12 12 Q 26 19 12 26" stroke="#8e44ad" stroke-width="2" fill="none"/>
+              <path d="M26 12 Q 12 19 26 26" stroke="#8e44ad" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div class="week" style="background: linear-gradient(135deg, #e6ccff 60%, #c8a2c8 100%); border-color: #8e44ad;">
+          <div style="font-size:1.6em;line-height:1;">🧬</div>
+          <div style="font-size:0.8em;color:#333;">Interaktiv Model</div>
+          <div style="margin-top:7px;font-size:0.95em;">DNA Replikation</div>
+        </div>
+        <div class="info" style="display: block; background: #faf5ff; border-color: #d9b3ff; text-align: center;">
+          Klik her for at åbne en interaktiv 3D-model af DNA-replikation.
+        </div>
+      </div>
+    </a>
   </div>
 
   <script>
